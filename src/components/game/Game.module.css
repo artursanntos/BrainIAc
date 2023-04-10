@@ -1,0 +1,36 @@
+.grid_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sidechat {
+    background: var(--gray-800);
+    width: 19.44rem;
+    height: 32rem;
+    border-radius: 5px;
+}
+
+.mainchat {
+    background: var(--gray-800);
+    width: 46.62rem;
+    height: 32rem;
+    margin-left: 4.24rem;
+    border-radius: 5px;
+}
+
+.chat {
+    display: grid;
+
+}
+
+
+div > p {
+    font-size: 1.92rem;
+    color: var(--gray-100);
+    padding: 15px 0 18px 20px;
+}
+
+.line {
+    border-top: 1px solid #2B2B2D;
+    margin: 0 0.6rem 1.08rem 0.6rem;
+}

@@ -1,0 +1,18 @@
+.ChatMessage {
+    display: inline-block;
+    background: var(--gray-600);
+    border-radius: 100px;
+    padding: 0.84rem 1rem;
+    margin: 0 2rem 1.68rem 2rem;
+    max-width: calc(46.62rem - 4rem);
+}
+
+.UserMessage {
+    display: inline-block;
+    background: var(--cian-200);
+    color: var(--gray-600);
+    border-radius: 100px;
+    padding: 0.84rem 1rem;
+    margin: 0 2rem 1.68rem 2rem;
+    max-width: calc(46.62rem - 4rem);
+}
