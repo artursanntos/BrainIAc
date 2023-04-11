@@ -24,6 +24,12 @@
 
 }
 
+.textbox {
+    height: 18.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
 div > p {
     font-size: 1.92rem;

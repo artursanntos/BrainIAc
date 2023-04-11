@@ -21,8 +21,11 @@ export default function Game() {
                     <ChatBubble userMessage = { false }/>
                     <ChatBubble content = {'Hello, this is a user Message'} userMessage = { true }/>
                 </div>
+
+                <div className={styles.textbox}>
+                    <Textbox placeholderText='Faça uma pergunta'/>
+                </div>
                 
-                <Textbox placeholderText='Faça uma pergunta'/>
             </div>
             
         </div>
