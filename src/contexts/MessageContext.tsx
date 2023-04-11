@@ -1,6 +1,12 @@
 import { ReactNode, createContext, useContext, useState, Dispatch, SetStateAction } from "react";
 
+interface Messages {
+    content: string
+    userMessage: boolean
+}
+
 interface MessageContextType {
+    //messages: Messages[] Fazer depois para diferenciar mensagens do chatGPT e jogadores
     messages: string[]
     setMessages: Dispatch<SetStateAction<string[]>>
 }

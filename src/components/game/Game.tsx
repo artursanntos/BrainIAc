@@ -24,6 +24,10 @@ export default function Game() {
                 <div className={styles.chat}>
                     <ChatBubble userMessage = { false }/>
                     <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
+                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
+                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
+                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
+                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
                 </div>
 
                 <div className={styles.textbox}>
