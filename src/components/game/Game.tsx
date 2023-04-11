@@ -22,9 +22,9 @@ export default function Game() {
                     <ChatBubble content = {'Hello, this is a user Message'} userMessage = { true }/>
                 </div>
                 
-
                 <Textbox placeholderText='Faça uma pergunta'/>
             </div>
+            
         </div>
     )
 }
