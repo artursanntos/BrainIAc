@@ -1,7 +1,7 @@
 import styles from './ChatBubble.module.css';
 
 
-export default function ChatBubble({content = 'Hello, this isaaaaaaaa', userMessage = true}) {
+export default function ChatBubble({content = 'Hello, this is', userMessage = true}) {
 
     return (
 

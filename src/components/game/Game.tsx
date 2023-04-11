@@ -2,9 +2,13 @@ import { List } from 'phosphor-react';
 import styles from './Game.module.css';
 import ChatBubble from './chatbubble/ChatBubble';
 import Textbox from './textbox/Textbox';
+import { useContext } from 'react';
+import { MessageContext } from '../../contexts/MessageContext';
 
 
 export default function Game() {
+
+    const {messages, setMessages} = useContext(MessageContext);
 
     return (
         <div className={styles.grid_container}>
@@ -19,7 +23,7 @@ export default function Game() {
 
                 <div className={styles.chat}>
                     <ChatBubble userMessage = { false }/>
-                    <ChatBubble content = {'Hello, this is a user Message'} userMessage = { true }/>
+                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
                 </div>
 
                 <div className={styles.textbox}>
