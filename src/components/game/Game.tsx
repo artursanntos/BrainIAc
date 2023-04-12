@@ -22,12 +22,13 @@ export default function Game() {
                 <div className={styles.line}></div>
 
                 <div className={styles.chat}>
-                    <ChatBubble userMessage = { false }/>
-                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
-                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
-                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
-                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
-                    <ChatBubble content = {messages[messages.length - 1]} userMessage = { true }/>
+                    {messages.map (message => {
+                        return (
+                            <ChatBubble content={message}/>
+                        )
+                    })
+
+                    }
                 </div>
 
                 <div className={styles.textbox}>
