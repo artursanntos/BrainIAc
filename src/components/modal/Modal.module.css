@@ -1,0 +1,42 @@
+/* Example CSS for modal with dark overlay */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjust width as needed */
+    max-width: 400px; /* Set a maximum width for smaller screens */
+    padding: 20px;
+    background-color: var(--gray-800); /* Set the background color to dark */
+    border-radius: 5px;
+    color: #ffffff; /* Set text color to light */
+    z-index: 9999; /* Set a high z-index to place modal above the overlay */
+  }
+
+  .modal div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+  }
+  
+  .modal h1 {
+    font-size: 28px;
+  }
+  
+  .modal p {
+    font-size: 1.2rem !important;
+  }
+  
+  .modal button {
+    font-size: 1.7rem;
+    color: #00a8b3; /* Set button text color to dark */
+  }
+
+  /* Example media query for small screens */
+  @media (max-width: 768px) {
+    .modal {
+      width: 90%;
+      max-width: 100%; /* Set to 100% to allow full width on small screens */
+    }
+  }
+  
