@@ -7,7 +7,7 @@ import { MessageContext } from '../../../contexts/MessageContext';
 
 export default function Textbox({placeholderText = ''}) {
 
-    const {messages, setMessages} = useContext(MessageContext);
+    const {messages, setMessages, askGpt} = useContext(MessageContext);
     //console.log(messages);
     
     
@@ -15,12 +15,13 @@ export default function Textbox({placeholderText = ''}) {
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
-    const handleCreateNewMessage = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleCreateNewMessage = async (e: React.FormEvent<HTMLFormElement>) => {
         
         //console.log(newMessageText);
         e.preventDefault();
         setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
         setNewMessageText('');
+        await askGpt(newMessageText)
         //console.log(messages);
     }
     /* This function gets the value written on the input */
