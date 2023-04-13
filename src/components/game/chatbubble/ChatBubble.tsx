@@ -1,12 +1,12 @@
 import styles from './ChatBubble.module.css';
 
 
-export default function ChatBubble({content = 'Hello, this is', userMessage = true}) {
+export default function ChatBubble({content = '', isUserMessage = true}) {
 
     return (
 
-        <div className={userMessage ? styles.userContainer : styles.chatContainer}>
-            <div className={userMessage ? styles.UserMessage : styles.ChatMessage}>
+        <div className={isUserMessage ? styles.userContainer : styles.chatContainer}>
+            <div className={isUserMessage ? styles.UserMessage : styles.ChatMessage}>
                 {content}
             </div>
         </div>

@@ -8,7 +8,7 @@ import { MessageContext } from '../../../contexts/MessageContext';
 export default function Textbox({placeholderText = ''}) {
 
     const {messages, setMessages} = useContext(MessageContext);
-    console.log(messages);
+    //console.log(messages);
     
     
     const [newMessageText, setNewMessageText] = useState('');
@@ -17,11 +17,11 @@ export default function Textbox({placeholderText = ''}) {
     erases the content in the text box */
     const handleCreateNewMessage = (e: React.FormEvent<HTMLFormElement>) => {
         
-        console.log(newMessageText);
+        //console.log(newMessageText);
         e.preventDefault();
-        setMessages([...messages, newMessageText]);
+        setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
         setNewMessageText('');
-        console.log(messages);
+        //console.log(messages);
     }
     /* This function gets the value written on the input */
     const handleNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -21,7 +21,7 @@
 .chat {
     display: flex;
     flex-direction: column;
-    max-height: 23rem;
+    height: 23rem;
     overflow-y: auto;
 }
 
