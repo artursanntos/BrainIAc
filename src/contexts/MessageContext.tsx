@@ -26,7 +26,7 @@ export const MessageContext = createContext({} as MessageContextType);
 
 export function MessageContextProvider({ children }: MessageProviderProps) {
 
-    const solution = 'Brasil'
+    const solution = 'Chile'
 
     const askGpt = async(text: string) => {
         try {
@@ -37,12 +37,14 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
             'Authorization': `Bearer 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`
             };
 
-            const prompt = `We are playing a game and I am going to tell you the rules that you MUST follow. You got the country ${solution} but I don't know that you got this country. Now I am asking you questions about the country you got and you must answer with YES or NO and only YES or NO. If I ask you a question that is not possible to answer with YES or NO you have to tell me that I can only ask YES or NO questions. You can not tell me the country you got until I got it right and when I correctly guess the country you return the message Congratulations mah friend! Remember you can't say anything different from YES OR NO until I get it right. My first question is: ${text}`
+            const prompt = `We are playing a game and I am going to tell you the rules that you MUST follow. You got the country ${solution} but I don't know that you got this country. Now I am asking you questions about the country you got and you must answer with YES or NO and only YES or NO. If I ask you a question that is not possible to answer with YES or NO you have to tell me that I can only ask YES or NO questions. You can not tell me the country you got until I got it right and when I correctly guess the country you return the message Congratulations mah friend! Remember you can't say anything different from YES OR NO until I get it right.`
+
+            const question = `My first question is: ${text}`
 
             const data = {
                 model: 'gpt-3.5-turbo-0301',
-                messages: [{"role": "user", "content": prompt}],
-                temperature: 0.7,
+                messages: [{"role": "user", "content": prompt}, {"role": "assistant", "content": "Ok, understood."}, {"role": "user", "content": question}],
+                temperature: 0.2,
                 max_tokens: 50
               };
 
