@@ -23,8 +23,11 @@ export default function Game() {
 
                 <div className={styles.chat}>
                     {messages.map (message => {
+                        console.log(message.content);
                         return (
-                            <ChatBubble content={message}/>
+                            <ChatBubble content={message.content} isUserMessage={message.isUserMessage}/>
+                            
+                            
                         )
                     })
 
