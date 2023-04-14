@@ -1,5 +1,6 @@
 .textfield {
     display: inline-flex;
+    align-items: center;
     margin: 0 2rem 1.68rem 2rem;
     width: calc(100% - 4rem);
     border-radius: 5px;
@@ -10,15 +11,57 @@
     border: 1px solid var(--blue-100);
 }
 
-input {
-    width: 100%;
-    padding: 0.72rem 0 0.72rem 1.2rem;
-    color: var(--gray-100);
-    box-sizing: border-box;
+select {
+    appearance: none;
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
-    background: var(--gray-600);
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    color: inherit;
+    outline: none;
 }
+
+.selector {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1rem;
+    color: var(--gray-100);
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: var(--gray-600);
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+}
+
+select, .selector:after {
+  grid-area: select;
+}
+
+.selector::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--cian-200);
+    margin-right: 0.3rem;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    justify-self: end;
+  }
+
+option {
+    background: var(--gray-600);
+    color: var(--gray-100);
+}
+
 
 button {
     all: unset; /* Removendo configurações anteriores */

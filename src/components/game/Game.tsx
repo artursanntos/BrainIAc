@@ -5,12 +5,12 @@ import Textbox from './textbox/Textbox';
 import { useContext } from 'react';
 import { MessageContext } from '../../contexts/MessageContext';
 import Guess from './guess/Guess';
-import Guessbox from './guessbox/guessbox';
+import Guessbox from './guessbox/Guessbox';
 
 
 export default function Game() {
 
-    const {messages, guessCountry} = useContext(MessageContext);
+    const {messages, country, countries} = useContext(MessageContext);
 
     const guess = '';
 
@@ -21,7 +21,7 @@ export default function Game() {
                 <div className={styles.line}></div>
                 
                 <div className={styles.guesses}>
-                    <Guess name='Norway' distance='9260' direction='Southwest'/>    
+                    <Guess name={country} distance='9260' direction='Southeast'/>    
                 </div>
                 <Guessbox placeholderText='Dê seu palpite'/>
                 
@@ -32,7 +32,7 @@ export default function Game() {
 
                 <div className={styles.chat}>
                     {messages.map (message => {
-                        console.log(message.content);
+                        // console.log(message.content);
                         return (
                             <ChatBubble content={message.content} isUserMessage={message.isUserMessage}/>
                         )

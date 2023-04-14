@@ -7,42 +7,42 @@ import { MessageContext } from '../../../contexts/MessageContext';
 
 export default function Textbox({placeholderText = ''}) {
 
-    const {messages, setMessages, askGpt} = useContext(MessageContext);
-    //console.log(messages);
-    
-    
-    const [newMessageText, setNewMessageText] = useState('');
+
+    const {messages, setMessages, askGpt, countries, setCountry} = useContext(MessageContext);
+
+    const [newGuess, setNewGuess] = useState('');
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
-    const handleCreateNewMessage = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleCreateNewGuess = async (e: React.FormEvent<HTMLFormElement>) => {
         
-        //console.log(newMessageText);
         e.preventDefault();
-        setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
-        setNewMessageText('');
-        await askGpt(newMessageText)
-        //console.log(messages);
+        setCountry(newGuess);
+        
+
     }
     /* This function gets the value written on the input */
-    const handleNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleNewGuessChange = (e: string) => {
 
         // e.currentTarget.setCustomValidity('');
-        setNewMessageText(e.currentTarget.value);
-        console.log(newMessageText);
+        
+        setNewGuess(e);
     }
 
-    /* This variable checks whether the content on the input box is empty */
-    //const isNewMessageEmpty = newMessageText.length == 0;
 
     return (
 
-        <form onSubmit={handleCreateNewMessage} className={styles.textfield}>
-            <input
-                type="text"
-                placeholder={placeholderText}
-                value={newMessageText}
-                onChange={handleNewMessageChange}/>
+        <form onSubmit={handleCreateNewGuess} className={styles.textfield}>
+            <div className={styles.selector}>
+                <select onChange={(e) => { handleNewGuessChange(e.currentTarget.value); }}>
+                    <option disabled>Choose a country</option>
+                    {countries.map( country => {
+                        return (
+                            <option value={country}>{country}</option>
+                        )
+                    })}
+                </select>
+            </div>
             <button type='submit'><FiSend/></button>
         </form>
 
