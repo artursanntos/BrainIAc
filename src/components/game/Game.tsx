@@ -18,7 +18,7 @@ export default function Game() {
                 <div className={styles.line}></div>
                 
                 <div className={styles.guesses}>
-                    <Guess/>    
+                    <Guess name='Norway' distance='9260' direction='Southwest'/>    
                 </div>
                 <Textbox placeholderText='Dê seu palpite'/>
                 
