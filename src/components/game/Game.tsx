@@ -5,11 +5,14 @@ import Textbox from './textbox/Textbox';
 import { useContext } from 'react';
 import { MessageContext } from '../../contexts/MessageContext';
 import Guess from './guess/Guess';
+import Guessbox from './guessbox/guessbox';
 
 
 export default function Game() {
 
-    const {messages, setMessages} = useContext(MessageContext);
+    const {messages, guessCountry} = useContext(MessageContext);
+
+    const guess = '';
 
     return (
         <div className={styles.grid_container}>
@@ -20,7 +23,7 @@ export default function Game() {
                 <div className={styles.guesses}>
                     <Guess name='Norway' distance='9260' direction='Southwest'/>    
                 </div>
-                <Textbox placeholderText='Dê seu palpite'/>
+                <Guessbox placeholderText='Dê seu palpite'/>
                 
             </div>
             <div className={styles.mainchat}>

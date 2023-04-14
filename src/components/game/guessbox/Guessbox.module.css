@@ -1,0 +1,29 @@
+.textfield {
+    display: inline-flex;
+    margin: 0 2rem 1.68rem 2rem;
+    width: calc(100% - 4rem);
+    border-radius: 5px;
+    background: var(--gray-600);
+}
+
+.textfield:focus-within { /* quando qualquer coisa dentro for clicada, deve haver um foco na div toda */
+    border: 1px solid var(--blue-100);
+}
+
+input {
+    width: 100%;
+    padding: 0.72rem 0 0.72rem 1.2rem;
+    color: var(--gray-100);
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    background: var(--gray-600);
+}
+
+button {
+    all: unset; /* Removendo configurações anteriores */
+    margin: 0.2rem 0.8rem 0 0;
+    cursor: pointer;
+}
+  
+  

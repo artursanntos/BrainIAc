@@ -29,7 +29,7 @@ type Flags = {
     [key: string]: string;
 }
 
-export default function Guess({name='Argentina', distance='2600', direction ='North'}: GuessProps) {
+export default function Guess({name='', distance='', direction =''}: GuessProps) {
 
     // List flags with its respective code. e.g: Argentina: 'ar'
     // Flag codes here: https://github.com/smucode/react-world-flags/tree/master/src/svgs
