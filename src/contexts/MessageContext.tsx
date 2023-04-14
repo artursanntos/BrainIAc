@@ -68,7 +68,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
             'Authorization': `Bearer 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`
             };
             
-            const prompt = `We are playing a game and I am going to tell you the rules that you MUST follow. You got the country ${solution} but I don't know that you got this country. Now I am guessing the country you got and you must answer with YES or NO and only YES or NO. If I ask you a question that is not possible to answer with YES or NO you have to tell me that I can only ask YES or NO questions. You can not tell me the country you got until I got it right and when I correctly guess the country you return the message Congratulations mah friend! Remember you can't say anything different from YES OR NO until I get it right. My first question is: ${text}`
+            const prompt = `We are playing a game and I am going to tell you the rules that you MUST follow. You got the country ${solution} but I don't know that you got this country. Now I am guessing the country you got and you must answer with the following structure:. If I say something other than a guess you have to tell me that I HAVE to guess valid countries. You can not say YES until i guess the correct country. Remember you can't say anything different from YES OR NO until I get it right. My first question is: ${text}`
 
             const data = {
                 model: 'gpt-3.5-turbo-0301',
@@ -80,6 +80,8 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
             const response = await axios.post(apiUrl, data, { headers })
 
             const answer = response.data.choices[0].message.content
+
+            console.log(answer);
             
             setMessages((oldState) => [...oldState, {content: answer, isUserMessage: false}]);
             
