@@ -5,7 +5,7 @@ import Textbox from './textbox/Textbox';
 import { useContext } from 'react';
 import { MessageContext } from '../../contexts/MessageContext';
 import Guess from './guess/Guess';
-import Guessbox from './guessbox/guessbox';
+import Guessbox from './guessbox/Guessbox';
 
 
 export default function Game() {
@@ -32,7 +32,7 @@ export default function Game() {
 
                 <div className={styles.chat}>
                     {messages.map (message => {
-                        console.log(message.content);
+                        // console.log(message.content);
                         return (
                             <ChatBubble content={message.content} isUserMessage={message.isUserMessage}/>
                         )

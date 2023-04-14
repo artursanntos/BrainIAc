@@ -17,6 +17,9 @@
 
     --red-500: #F75A68;
     
+    --select-border: var(--gray-600);
+    --select-focus: var(--cian-200);
+    --select-arrow: var(--gray-600);
    
 }
 
