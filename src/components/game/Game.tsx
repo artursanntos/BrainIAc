@@ -10,7 +10,7 @@ import Guessbox from './guessbox/Guessbox';
 
 export default function Game() {
 
-    const {messages, guessCountry} = useContext(MessageContext);
+    const {messages, country, countries} = useContext(MessageContext);
 
     const guess = '';
 
@@ -21,7 +21,7 @@ export default function Game() {
                 <div className={styles.line}></div>
                 
                 <div className={styles.guesses}>
-                    <Guess name='Norway' distance='9260' direction='Southwest'/>    
+                    <Guess name={country} distance='9260' direction='Southeast'/>    
                 </div>
                 <Guessbox placeholderText='Dê seu palpite'/>
                 
