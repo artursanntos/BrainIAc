@@ -32,7 +32,7 @@ export default function Textbox({placeholderText = ''}) {
         <form onSubmit={handleCreateNewGuess} className={styles.textfield}>
             <div className={styles.selector}>
                 <select onChange={(e) => { handleNewGuessChange(e.currentTarget.value); }}>
-                    <option disabled>Choose a country</option>
+                    <option disabled selected hidden> Select an option </option>
                     {countries.map( country => {
                         return (
                             <option value={country}>{country}</option>

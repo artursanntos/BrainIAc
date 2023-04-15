@@ -10,7 +10,7 @@ import Guessbox from './guessbox/Guessbox';
 
 export default function Game() {
 
-    const {messages, country, guesses} = useContext(MessageContext);
+    const {messages, guesses} = useContext(MessageContext);
 
     return (
         <div className={styles.grid_container}>
