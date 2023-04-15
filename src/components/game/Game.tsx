@@ -15,7 +15,7 @@ export default function Game() {
     return (
         <div className={styles.grid_container}>
             <div className={styles.sidechat}>
-                <p>Palpites</p>
+                <p>Guesses</p>
                 <div className={styles.line}></div>
                 
                 <div className={styles.guesses}>
@@ -30,7 +30,7 @@ export default function Game() {
                 
             </div>
             <div className={styles.mainchat}>
-                <p>Converse com o BrainIAc para descobrir o país</p>
+                <p>Talk to BrainIAc to discover the country!</p>
                 <div className={styles.line}></div>
 
                 <div className={styles.chat}>
@@ -45,7 +45,7 @@ export default function Game() {
                 </div>
 
                 <div className={styles.textbox}>
-                    <Textbox placeholderText='Faça uma pergunta'/>
+                    <Textbox placeholderText='Ask a yes or no question'/>
                 </div>
                 
             </div>
