@@ -8,7 +8,7 @@ import { MessageContext } from '../../../contexts/MessageContext';
 export default function Textbox({placeholderText = ''}) {
 
 
-    const {messages, setMessages, askGpt, countries, setCountry} = useContext(MessageContext);
+    const {countries, setCountry, guesses, setGuesses} = useContext(MessageContext);
 
     const [newGuess, setNewGuess] = useState('');
 
@@ -17,15 +17,12 @@ export default function Textbox({placeholderText = ''}) {
     const handleCreateNewGuess = async (e: React.FormEvent<HTMLFormElement>) => {
         
         e.preventDefault();
-        setCountry(newGuess);
+        setGuesses([...guesses, newGuess]);
         
 
     }
     /* This function gets the value written on the input */
     const handleNewGuessChange = (e: string) => {
-
-        // e.currentTarget.setCustomValidity('');
-        
         setNewGuess(e);
     }
 

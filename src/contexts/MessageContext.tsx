@@ -16,6 +16,8 @@ interface MessageContextType {
     setMessages: Dispatch<SetStateAction<Messages[]>>
     askGpt: (text: string) => Promise<void>
     countries: string[]
+    guesses: string[]
+    setGuesses: Dispatch<SetStateAction<string[]>>
     country: string
     setCountry: Dispatch<SetStateAction<string>>
 }
@@ -98,10 +100,12 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
         { content : 'Oi, já pensei em um país. Você pode me fazer até 10 perguntas', isUserMessage: false }
     ]);
 
-    const [country, setCountry] = useState('Brazil');
+    const [country, setCountry] = useState('');
+
+    const [guesses, setGuesses] = useState<string[]>([]);
 
     return (
-        <MessageContext.Provider value={{messages, setMessages, askGpt, countries, country, setCountry}}>
+        <MessageContext.Provider value={{messages, setMessages, askGpt, guesses, setGuesses, countries, country, setCountry}}>
             {children}
         </MessageContext.Provider>
     )
