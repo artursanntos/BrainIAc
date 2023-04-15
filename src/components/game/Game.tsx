@@ -10,24 +10,27 @@ import Guessbox from './guessbox/Guessbox';
 
 export default function Game() {
 
-    const {messages, country, countries} = useContext(MessageContext);
-
-    const guess = '';
+    const {messages, country, guesses} = useContext(MessageContext);
 
     return (
         <div className={styles.grid_container}>
             <div className={styles.sidechat}>
-                <p>Palpites</p>
+                <p>Guesses</p>
                 <div className={styles.line}></div>
                 
                 <div className={styles.guesses}>
-                    <Guess name={country} distance='9260' direction='Southeast'/>    
+                    {guesses.map(guess => {
+                        return (
+                            <Guess name={guess} distance='9260' direction='Southeast'/>
+                        )
+                    })}
+                        
                 </div>
                 <Guessbox placeholderText='Dê seu palpite'/>
                 
             </div>
             <div className={styles.mainchat}>
-                <p>Converse com o BrainIAc para descobrir o país</p>
+                <p>Talk to BrainIAc to discover the country!</p>
                 <div className={styles.line}></div>
 
                 <div className={styles.chat}>
@@ -42,7 +45,7 @@ export default function Game() {
                 </div>
 
                 <div className={styles.textbox}>
-                    <Textbox placeholderText='Faça uma pergunta'/>
+                    <Textbox placeholderText='Ask a yes or no question'/>
                 </div>
                 
             </div>
