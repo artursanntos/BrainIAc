@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { MessageContext } from '../../contexts/MessageContext';
 import Guess from './guess/Guess';
 import Guessbox from './guessbox/Guessbox';
+import { WinContext } from '../../contexts/WinContext';
 
 
 export default function Game() {
@@ -26,7 +27,7 @@ export default function Game() {
                     })}
                         
                 </div>
-                <Guessbox placeholderText='Dê seu palpite'/>
+                <Guessbox/>
                 
             </div>
             <div className={styles.mainchat}>

@@ -2,15 +2,17 @@ import styles from './Guessbox.module.css';
 import { FiSend } from "react-icons/fi";
 import { useState, useContext } from 'react';
 import { MessageContext } from '../../../contexts/MessageContext';
+import { WinContext } from '../../../contexts/WinContext';
 
 
 
-export default function Textbox({placeholderText = ''}) {
+export default function Textbox({}) {
 
 
-    const {countries, setCountry, guesses, setGuesses} = useContext(MessageContext);
+    const {countries, guesses, setGuesses, solution} = useContext(MessageContext);
 
     const [newGuess, setNewGuess] = useState('');
+    const {isWinOpen, setIsWinOpen, setWin} = useContext(WinContext);
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
@@ -18,8 +20,11 @@ export default function Textbox({placeholderText = ''}) {
         
         e.preventDefault();
         setGuesses([...guesses, newGuess]);
-        
 
+        if (newGuess == solution) {
+            setWin(true);
+            setIsWinOpen(true);
+        }
     }
     /* This function gets the value written on the input */
     const handleNewGuessChange = (e: string) => {
@@ -31,8 +36,8 @@ export default function Textbox({placeholderText = ''}) {
 
         <form onSubmit={handleCreateNewGuess} className={styles.textfield}>
             <div className={styles.selector}>
-                <select onChange={(e) => { handleNewGuessChange(e.currentTarget.value); }}>
-                    <option disabled selected hidden> Select an option </option>
+                <select defaultValue={'Select an option'} onChange={(e) => { handleNewGuessChange(e.currentTarget.value); }}>
+                    <option disabled hidden> Select an option </option>
                     {countries.map( country => {
                         return (
                             <option value={country}>{country}</option>

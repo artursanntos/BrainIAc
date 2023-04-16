@@ -1,19 +1,30 @@
 import styles from './Topbar.module.css';
 import MyModal from '../modal/Modal';
-import React, { useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { Win } from '../win/win';
+import { WinContext } from '../../contexts/WinContext';
+
 
 export default function Topbar() {
 
-const [isModalOpen, setIsModalOpen] = useState(false);
+    const { isWinOpen } = useContext(WinContext);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [winModalOpen, setWinModalOpen] = useState(false);
 
-const handleOpenModal = () => {
-    setIsModalOpen(true);
-};
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
 
-const handleCloseModal = () => {
-    setIsModalOpen(false);
-};
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    useEffect(() => {
+        if (isWinOpen) {
+            setWinModalOpen(true);
+        }
+    }, [isWinOpen]);
 
     return (
         <div className={styles.wrapper}>
@@ -29,7 +40,7 @@ const handleCloseModal = () => {
                     />
                 )}
             </div>
+            <div>{winModalOpen && <Win/>}</div>
         </div>
     )
-    
 }

@@ -5,12 +5,14 @@ import Game from './components/game/Game';
 
 import styles from './components/App.module.css';
 import { MessageContextProvider } from './contexts/MessageContext';
+import { WinContextProvider } from './contexts/WinContext';
 
 
 function App() {
 
     return (
 
+        <WinContextProvider>
         <MessageContextProvider>
             <div>
                 <div><Topbar/></div>
@@ -20,6 +22,7 @@ function App() {
             </div>
 
         </MessageContextProvider>
+        </WinContextProvider>
             
     )
 }

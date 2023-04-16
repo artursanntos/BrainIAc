@@ -8,7 +8,6 @@ import { MessageContext } from '../../../contexts/MessageContext';
 export default function Textbox({placeholderText = ''}) {
 
     const {messages, setMessages, askGpt} = useContext(MessageContext);
-    //console.log(messages);
     
     
     const [newMessageText, setNewMessageText] = useState('');
@@ -17,19 +16,14 @@ export default function Textbox({placeholderText = ''}) {
     erases the content in the text box */
     const handleCreateNewMessage = async (e: React.FormEvent<HTMLFormElement>) => {
         
-        //console.log(newMessageText);
         e.preventDefault();
         setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
         setNewMessageText('');
         await askGpt(newMessageText)
-        //console.log(messages);
     }
     /* This function gets the value written on the input */
     const handleNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-        // e.currentTarget.setCustomValidity('');
         setNewMessageText(e.currentTarget.value);
-        console.log(newMessageText);
     }
 
     /* This variable checks whether the content on the input box is empty */
