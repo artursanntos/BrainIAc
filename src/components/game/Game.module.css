@@ -43,4 +43,5 @@ div > p {
 
 .guesses {
     height: 23rem;
+    overflow-y: auto;
 }
