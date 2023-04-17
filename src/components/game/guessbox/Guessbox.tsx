@@ -20,6 +20,8 @@ export default function Textbox({}) {
         
         e.preventDefault();
         setGuesses([...guesses, newGuess]);
+        console.log(solution);
+        
 
         if (newGuess == solution) {
             setWin(true);
