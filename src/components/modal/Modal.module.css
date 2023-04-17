@@ -34,6 +34,10 @@
     color: #00a8b3; /* Set button text color to dark */
   }
 
+  .regras {
+    color: var(--blue-100);
+  }
+
   /* Example media query for small screens */
   @media (max-width: 768px) {
     .modal {

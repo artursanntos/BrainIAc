@@ -11,7 +11,7 @@ import { WinContext } from '../../contexts/WinContext';
 
 export default function Game() {
 
-    const {messages, guesses} = useContext(MessageContext);
+    const {messages, guesses, solution} = useContext(MessageContext);
 
     return (
         <div className={styles.grid_container}>
