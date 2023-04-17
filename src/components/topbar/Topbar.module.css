@@ -19,9 +19,16 @@ img {
     height: 3rem;
 }
 
-button {
-    color: #00a8b3 !important;
-    font-size: 1.8rem !important;
+.modalButton {
+    all: unset; /* Removendo configurações anteriores */
+    margin: 0.2rem 0.8rem 0 0;
+    cursor: pointer;
+    color: var(--cian-200);
+    font-size: 1.8rem;
+}
+
+.modalButton:hover {
+    color: var(--blue-100);
 }
 
 h6 {

@@ -37,7 +37,7 @@ export default function Textbox({placeholderText = ''}) {
                 placeholder={placeholderText}
                 value={newMessageText}
                 onChange={handleNewMessageChange}/>
-            <button type='submit'><FiSend/></button>
+            <button className={styles.sendButton} type='submit'><FiSend/></button>
         </form>
 
     )

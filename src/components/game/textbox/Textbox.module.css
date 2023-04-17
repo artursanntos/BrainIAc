@@ -20,10 +20,16 @@ input {
     background: var(--gray-600);
 }
 
-button {
+.sendButton {
     all: unset; /* Removendo configurações anteriores */
     margin: 0.2rem 0.8rem 0 0;
     cursor: pointer;
+    color: var(--cian-200);
+    font-size: 1.4rem;
+}
+
+.sendButton:hover {
+    color: var(--blue-100);
 }
   
   

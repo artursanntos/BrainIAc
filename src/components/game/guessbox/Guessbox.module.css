@@ -3,6 +3,7 @@
     align-items: center;
     margin: 0 2rem 1.68rem 2rem;
     width: calc(100% - 4rem);
+    height: 2.6rem;
     border-radius: 5px;
     background: var(--gray-600);
 }
@@ -55,7 +56,7 @@ select, .selector:after {
     margin-right: 0.3rem;
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     justify-self: end;
-  }
+}
 
 option {
     background: var(--gray-600);
@@ -63,10 +64,16 @@ option {
 }
 
 
-button {
+.sendButton {
     all: unset; /* Removendo configurações anteriores */
     margin: 0.2rem 0.8rem 0 0;
     cursor: pointer;
+    color: var(--cian-200);
+    font-size: 1.4rem;
+}
+
+.sendButton:hover {
+    color: var(--blue-100);
 }
   
   

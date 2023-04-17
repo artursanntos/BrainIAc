@@ -21,13 +21,6 @@ export function Win() {
 
     const handleCloseWin = () => {
         setIsWinOpen(false);
-
-        // This block of code below makes that when 
-        // the win modal is closed, everything resets
-        /*
-        setGuesses([]);
-        setMessages([{ content : "Hi, I've already thought of a country. You can ask me up to 10 questions.", isUserMessage: false }]);
-        */
     }
     
 

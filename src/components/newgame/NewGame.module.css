@@ -1,0 +1,14 @@
+.newgame {
+    font-size: 0.9rem !important;
+    color: var(--gray-900) !important;
+    padding: 0.4rem;
+    background: var(--cian-200);
+    border-radius: 5px;
+    border: solid 1px var(--cian-200);
+    cursor: pointer;
+}
+
+.newgame:hover {
+    background: var(--blue-100);
+    color: var(--gray-900) !important;
+}

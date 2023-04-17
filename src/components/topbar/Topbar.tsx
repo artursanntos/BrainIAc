@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from 'react';
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { Win } from '../win/Win';
 import { WinContext } from '../../contexts/WinContext';
+import NewGame from '../newgame/NewGame';
 
 
 export default function Topbar() {
@@ -30,9 +31,8 @@ export default function Topbar() {
         <div className={styles.wrapper}>
             <img src="./src/assets/logo.svg" alt="logo" />
             <p>BrainIAc</p>
-            <h6>powered by GPT3.5</h6>
             <div>
-                <button onClick={handleOpenModal}><AiOutlineQuestionCircle/></button>
+                <button className={styles.modalButton} onClick={handleOpenModal}><AiOutlineQuestionCircle/></button>
                 {isModalOpen && (
                 <MyModal
                     title="Como jogar"
@@ -41,6 +41,7 @@ export default function Topbar() {
                     />
                 )}
             </div>
+            <NewGame/>
             <div>{winModalOpen && <Win/>}</div>
         </div>
         

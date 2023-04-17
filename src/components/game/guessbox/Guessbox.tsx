@@ -12,7 +12,7 @@ export default function Textbox({}) {
     const {countries, guesses, setGuesses, solution} = useContext(MessageContext);
 
     const [newGuess, setNewGuess] = useState('');
-    const {isWinOpen, setIsWinOpen, setWin} = useContext(WinContext);
+    const { setIsWinOpen, setWin } = useContext(WinContext);
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
@@ -45,7 +45,7 @@ export default function Textbox({}) {
                     })}
                 </select>
             </div>
-            <button type='submit'><FiSend/></button>
+            <button className={styles.sendButton} type='submit'><FiSend/></button>
         </form>
 
     )

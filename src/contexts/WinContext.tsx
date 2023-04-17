@@ -20,7 +20,6 @@ export function WinContextProvider({ children }: WinProviderProps) {
 
     const [win, setWin] = useState<boolean>(false);
     const [isWinOpen, setIsWinOpen] = useState<boolean>(false);
-    const [winWasClosed, setWinWasClosed] = useState<boolean>(false);
 
 
     return (
