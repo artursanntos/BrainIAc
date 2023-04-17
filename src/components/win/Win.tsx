@@ -38,6 +38,7 @@ export function Win() {
             <div className={styles.newGame}>
                 <p>Would you like to play again?</p>
                 <NewGame/>
+                
             </div>
             
         </Modal>

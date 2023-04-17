@@ -6,7 +6,7 @@ import { MessageContext } from '../../contexts/MessageContext';
 export default function NewGame() {
 
     const { setGuesses, setMessages, setSolution, countries } = useContext(MessageContext);
-    const { setWin } = useContext(WinContext);
+    const { setWin, setIsWinOpen } = useContext(WinContext);
 
     const handleNewGame = () => {
 
@@ -15,6 +15,7 @@ export default function NewGame() {
         setGuesses([]);
         setMessages([{ content : "Hi, I've already thought of a country. You can ask me up to 10 questions.", isUserMessage: false }]);
         setWin(false);
+        setIsWinOpen(false);
     }
 
     return (
