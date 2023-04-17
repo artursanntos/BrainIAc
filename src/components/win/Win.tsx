@@ -2,6 +2,7 @@ import styles from './Win.module.css';
 import Modal from 'react-modal';
 import { CgCloseO } from "react-icons/cg";
 import { WinContext } from '../../contexts/WinContext';
+import { MessageContext } from '../../contexts/MessageContext';
 import { useContext } from 'react';
 
 const fadedBg = {
@@ -12,10 +13,21 @@ const fadedBg = {
 
 export function Win() {
     
-    const {setIsWinOpen, isWinOpen} = useContext(WinContext);
-    
+    const { setIsWinOpen, isWinOpen } = useContext(WinContext);
+
+    // This code only has meaning if we restart the arrays when the game
+    // is finished
+    // const { setGuesses, setMessages } = useContext(MessageContext);
+
     const handleCloseWin = () => {
         setIsWinOpen(false);
+
+        // This block of code below makes that when 
+        // the win modal is closed, everything resets
+        /*
+        setGuesses([]);
+        setMessages([{ content : "Hi, I've already thought of a country. You can ask me up to 10 questions.", isUserMessage: false }]);
+        */
     }
     
 

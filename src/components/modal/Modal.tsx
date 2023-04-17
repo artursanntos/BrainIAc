@@ -25,7 +25,7 @@ const MyModal: React.FC<ModalProps> = ({title, body, onClose}) => {
         <button onClick={onClose}><CgCloseO/></button>
       </div>
         <p>{body}</p>
-        <p>Regras:</p>
+        <p className={styles.regras}>Regras:</p>
         <p>- Construa perguntas de SIM ou NÃO</p>
         <p>- Faça palpites</p>
         <p>- Divirta-se</p>
