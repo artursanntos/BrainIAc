@@ -29,8 +29,8 @@ export default function Topbar() {
     return (
         <div className={styles.wrapper}>
             <img src="./src/assets/logo.svg" alt="logo" />
-            <p>BranIAc</p>
-            <h6>powered by GPT3</h6>
+            <p>BrainIAc</p>
+            <h6>powered by GPT3.5</h6>
             <div>
                 <button onClick={handleOpenModal}><AiOutlineQuestionCircle/></button>
                 {isModalOpen && (

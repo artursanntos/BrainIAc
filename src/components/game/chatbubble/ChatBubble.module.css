@@ -3,6 +3,7 @@
     max-height: fit-content;
     display: flex;
     justify-content: flex-end;
+
 }
 
 .chatContainer {
@@ -10,6 +11,7 @@
     max-height: fit-content;
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .ChatMessage {
