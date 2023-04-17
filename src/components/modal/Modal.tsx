@@ -26,7 +26,7 @@ const MyModal: React.FC<ModalProps> = ({title, body, onClose}) => {
       </div>
         <p>{body}</p>
         <p className={styles.regras}>Regras:</p>
-        <p>- Construa perguntas de SIM ou NÃO</p>
+        <p>- Construa BEM suas perguntas de SIM ou NÃO</p>
         <p>- Faça palpites</p>
         <p>- Divirta-se</p>
 
