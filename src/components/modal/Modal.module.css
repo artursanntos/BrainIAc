@@ -6,6 +6,7 @@
     transform: translate(-50%, -50%);
     width: 90%; /* Adjust width as needed */
     max-width: 400px; /* Set a maximum width for smaller screens */
+    min-width: 600px;
     padding: 20px;
     background-color: var(--gray-800); /* Set the background color to dark */
     border-radius: 5px;

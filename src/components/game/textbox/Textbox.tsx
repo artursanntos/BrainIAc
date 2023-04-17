@@ -16,10 +16,14 @@ export default function Textbox({placeholderText = ''}) {
     erases the content in the text box */
     const handleCreateNewMessage = async (e: React.FormEvent<HTMLFormElement>) => {
         
+        if(newMessageText.trim().length != 0){
+            e.preventDefault();
+            setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
+            setNewMessageText('');
+            await askGpt(newMessageText)
+        }
         e.preventDefault();
-        setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
-        setNewMessageText('');
-        await askGpt(newMessageText)
+        
     }
     /* This function gets the value written on the input */
     const handleNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
