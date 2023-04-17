@@ -4,6 +4,7 @@ import { CgCloseO } from "react-icons/cg";
 import { WinContext } from '../../contexts/WinContext';
 import { MessageContext } from '../../contexts/MessageContext';
 import { useContext } from 'react';
+import NewGame from '../newgame/NewGame';
 
 const fadedBg = {
     overlay: {
@@ -21,13 +22,6 @@ export function Win() {
 
     const handleCloseWin = () => {
         setIsWinOpen(false);
-
-        // This block of code below makes that when 
-        // the win modal is closed, everything resets
-        /*
-        setGuesses([]);
-        setMessages([{ content : "Hi, I've already thought of a country. You can ask me up to 10 questions.", isUserMessage: false }]);
-        */
     }
     
 
@@ -35,11 +29,16 @@ export function Win() {
         <Modal className={styles.win} isOpen={isWinOpen} onRequestClose={handleCloseWin} style={fadedBg}>
             <div className={styles.header}>
                 <h1>Well done!</h1>
-                <button onClick={handleCloseWin}><CgCloseO/></button>
+                <button className={styles.closeButton} onClick={handleCloseWin}><CgCloseO/></button>
             </div>
             <div className={styles.footer}>
                 <h3>You won!</h3>
                 <span role="img" aria-label="party popper">🎉</span>
+            </div>
+            <div className={styles.newGame}>
+                <p>Would you like to play again?</p>
+                <NewGame/>
+                
             </div>
             
         </Modal>

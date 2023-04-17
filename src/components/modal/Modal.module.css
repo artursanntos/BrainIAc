@@ -30,8 +30,16 @@
   }
   
   .modal button {
+
+    all: unset; /* Removendo configurações anteriores */
+    margin: 0.2rem 0.8rem 0 0;
+    cursor: pointer;
     font-size: 1.7rem;
-    color: #00a8b3; /* Set button text color to dark */
+    color: var(--cian-200); /* Set button text color to dark */
+  }
+
+  .modal button:hover {
+    color: var(--blue-100);
   }
 
   .regras {
