@@ -13,7 +13,7 @@ export default function NewGame() {
         const randomIndex = Math.floor(Math.random() * countries.length);
         setSolution(countries[randomIndex]);
         setGuesses([]);
-        setMessages([{ content : "Hi, I've already thought of a country. You can ask me up to 10 questions.", isUserMessage: false }]);
+        setMessages([{ content : "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }]);
         setWin(false);
         setIsWinOpen(false);
     }
