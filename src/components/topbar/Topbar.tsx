@@ -29,7 +29,7 @@ export default function Topbar() {
 
     return (
         <div className={styles.wrapper}>
-            <embed src=".\src\assets\logo.svg"/>
+            <embed src="src\assets\logo.svg"/>
             <p>BrainIAc</p>
             <div>
                 <button className={styles.modalButton} onClick={handleOpenModal}><AiOutlineQuestionCircle/></button>
