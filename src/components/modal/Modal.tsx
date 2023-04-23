@@ -21,14 +21,17 @@ const MyModal: React.FC<ModalProps> = ({title, body, onClose}) => {
   return (
     <Modal className={styles.modal} isOpen={true} onRequestClose={onClose} style={fadedBg}>
       <div>
-        <h1>{title}</h1>
+        <h1>Welcome to BrainIAc!</h1>
         <button onClick={onClose}><CgCloseO/></button>
       </div>
         <p>{body}</p>
-        <p className={styles.regras}>Regras:</p>
-        <p>- Construa BEM suas perguntas de SIM ou NÃO</p>
-        <p>- Faça palpites</p>
-        <p>- Divirta-se</p>
+        <h2>{title}</h2>
+        <p className={styles.regras}>Rules</p>
+        <p>- Build <b>YES</b> or <b>NO</b> questions.</p>
+        <p>- Make guesses</p>
+        <p className={styles.regras}>Hints</p>
+        <p><b>Be specific:</b> Provide as much information as possible in the question to make it clear what kind of answer is expected</p>
+        <p><b>Use clear and concise language:</b> Use language that clearly communicates the question and the expected yes or no response.</p>
 
     </Modal>
   );
