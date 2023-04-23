@@ -10,7 +10,7 @@ import NewGame from '../newgame/NewGame';
 export default function Topbar() {
 
     const { isWinOpen } = useContext(WinContext);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(true);
     const [winModalOpen, setWinModalOpen] = useState(false);
 
     const handleOpenModal = () => {

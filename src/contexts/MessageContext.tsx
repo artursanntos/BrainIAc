@@ -14,12 +14,12 @@ interface Messages {
 interface MessageContextType {
     messages: Messages[]
     setMessages: Dispatch<SetStateAction<Messages[]>>
-    askGpt: (text: string) => Promise<void>
     countries: string[]
     guesses: string[]
     setGuesses: Dispatch<SetStateAction<string[]>>
     solution: string
     setSolution: Dispatch<SetStateAction<string>>
+    askGpt: (question: string) => Promise<void>
 }
 
 interface MessageProviderProps {
@@ -36,34 +36,29 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
 
     const [solution, setSolution] = useState(countries[randomIndex]);
     
-    const askGpt = async(text: string) => {
+    const askGpt = async(question: string) => {
         try {
-            const apiUrl = 'https://api.openai.com/v1/chat/completions';
+            const url = 'https://multimidia-backend-5lcnphvxha-uc.a.run.app/api/question/';
 
             const headers = {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`
-            };
-
-            const prompt = `I am a highly intelligent question answering bot. I know everything about all countries in the world precisely. If you ask me a question that is rooted in truth, I will give you the answer by saying only "yes" or "no" and I am never saying ${solution}. If you ask me a question that is nonsense, trickery, or has no clear answer, I will respond with "I can not answer that". I am being asked yes or no questions about ${solution}`
-
-            const question = `My first question is: ${text}`
+                'Content-type': 'application/json'
+            }
 
             const data = {
-                model: 'gpt-3.5-turbo-0301',
-                messages: [{"role": "user", "content": prompt}, {"role": "assistant", "content": "Ok, understood."}, {"role": "user", "content": question}],
-                temperature: 0.0,
-                max_tokens: 50
-              };
+                "country": solution,
+                "question": question
+            };
 
-            const response = await axios.post(apiUrl, data, { headers })
-
-            const answer = response.data.choices[0].message.content
+            const response = await axios.post(url, data, { headers })
+            
+            const answer = response.data.answer;
             
             setMessages((oldState) => [...oldState, {content: answer, isUserMessage: false}]);
             
+
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            
         }
     }
     
@@ -74,7 +69,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
     const [guesses, setGuesses] = useState<string[]>([]);
 
     return (
-        <MessageContext.Provider value={{solution, setSolution, messages, setMessages, askGpt, guesses, setGuesses, countries}}>
+        <MessageContext.Provider value={{solution, setSolution, messages, setMessages, guesses, setGuesses, countries, askGpt}}>
             {children}
         </MessageContext.Provider>
     )
