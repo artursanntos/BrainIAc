@@ -20,7 +20,7 @@ export default function Textbox({placeholderText = ''}) {
             e.preventDefault();
             setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
             setNewMessageText('');
-            await askGpt(newMessageText)
+            await askGpt(newMessageText);
         }
         e.preventDefault();
         

@@ -26,8 +26,9 @@
   
   .modal p {
     font-size: 1rem !important;
+    font-weight: 400;
     text-align: justify;
-    line-height: 2.0rem;
+    line-height: 2rem;
   }
   
   .modal button {

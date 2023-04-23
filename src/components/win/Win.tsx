@@ -12,13 +12,10 @@ const fadedBg = {
     }
 }
 
+/* This component is the modal that opens when the player wins the game */
 export function Win() {
     
     const { setIsWinOpen, isWinOpen } = useContext(WinContext);
-
-    // This code only has meaning if we restart the arrays when the game
-    // is finished
-    // const { setGuesses, setMessages } = useContext(MessageContext);
 
     const handleCloseWin = () => {
         setIsWinOpen(false);

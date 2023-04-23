@@ -10,7 +10,7 @@ import NewGame from '../newgame/NewGame';
 export default function Topbar() {
 
     const { isWinOpen } = useContext(WinContext);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(true);
     const [winModalOpen, setWinModalOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -35,8 +35,8 @@ export default function Topbar() {
                 <button className={styles.modalButton} onClick={handleOpenModal}><AiOutlineQuestionCircle/></button>
                 {isModalOpen && (
                 <MyModal
-                    title="Como jogar"
-                    body="BranIAc é um jogo de interação com Inteligência Artificial no qual o jogador tem o propósito de acertar o país da IA por meio de perguntas."
+                    title="How to play"
+                    body="BranIAc is an Artificial Intelligence interactive game in which the player's goal is to guess the mysterious country through questions."
                     onClose={handleCloseModal}
                     />
                 )}
