@@ -5,7 +5,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { Win } from '../win/Win';
 import { WinContext } from '../../contexts/WinContext';
 import NewGame from '../newgame/NewGame';
-import Logo from '../logo/logo';
+import Logo from '../logo/Logo';
 
 
 export default function Topbar() {
