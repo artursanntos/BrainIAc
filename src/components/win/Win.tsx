@@ -2,7 +2,6 @@ import styles from './Win.module.css';
 import Modal from 'react-modal';
 import { CgCloseO } from "react-icons/cg";
 import { WinContext } from '../../contexts/WinContext';
-import { MessageContext } from '../../contexts/MessageContext';
 import { useContext } from 'react';
 import NewGame from '../newgame/NewGame';
 

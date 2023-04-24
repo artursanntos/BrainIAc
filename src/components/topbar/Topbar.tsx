@@ -5,6 +5,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { Win } from '../win/Win';
 import { WinContext } from '../../contexts/WinContext';
 import NewGame from '../newgame/NewGame';
+import Logo from '../logo/logo';
 
 
 export default function Topbar() {
@@ -29,7 +30,8 @@ export default function Topbar() {
 
     return (
         <div className={styles.wrapper}>
-            <img src="../../public/logo.svg"/>
+            <div className={styles.logo}><Logo/></div>
+            
             <p>BrainIAc</p>
             <div>
                 <button className={styles.modalButton} onClick={handleOpenModal}><AiOutlineQuestionCircle/></button>
