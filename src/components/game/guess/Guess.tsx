@@ -59,7 +59,7 @@ export default function Guess({name='', distance='', direction =''}: GuessProps)
     return (
 
         <div className={styles.container}>
-            <Flag code={flags[name]} height="10"/>
+            <Flag code={flags[name]} height="27"/>
             <p className={styles.countryName}>{name}</p>
                 {isRightGuess ?
                  <div className={styles.iconCorrect}><BsFillCheckCircleFill/></div> :

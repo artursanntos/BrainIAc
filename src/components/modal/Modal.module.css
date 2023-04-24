@@ -3,10 +3,9 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
-    max-width: 400px; /* Set a maximum width for smaller screens */
-    min-width: 600px;
+    transform: translate(-50%, -50%); /* Adjust width as needed */
+    max-width: 800px; /* Set a maximum width for smaller screens */
+    min-width: 400px;
     padding: 20px;
     background-color: var(--gray-800); /* Set the background color to dark */
     border-radius: 5px;
@@ -25,10 +24,10 @@
   }
   
   .modal p {
-    font-size: 1rem !important;
+    font-size: 1rem;
     font-weight: 400;
     text-align: justify;
-    line-height: 2rem;
+    line-height: 1.3rem;
   }
   
   .modal button {
@@ -51,8 +50,8 @@
   /* Example media query for small screens */
   @media (max-width: 768px) {
     .modal {
-      width: 90%;
-      max-width: 100%; /* Set to 100% to allow full width on small screens */
+      width: 10%;
+      max-width: 40%; /* Set to 100% to allow full width on small screens */
     }
   }
   
