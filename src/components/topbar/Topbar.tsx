@@ -3,6 +3,7 @@ import MyModal from '../modal/Modal';
 import { useContext, useState, useEffect } from 'react';
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { Win } from '../win/Win';
+import { Lose } from '../lose/Lose';
 import { WinContext } from '../../contexts/WinContext';
 import NewGame from '../newgame/NewGame';
 import Logo from '../logo/Logo';
@@ -10,9 +11,10 @@ import Logo from '../logo/Logo';
 
 export default function Topbar() {
 
-    const { isWinOpen } = useContext(WinContext);
+    const { isWinOpen, isLoseOpen } = useContext(WinContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [winModalOpen, setWinModalOpen] = useState(false);
+    const [loseModalOpen, setLoseModalOpen] = useState(false);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -22,11 +24,19 @@ export default function Topbar() {
         setIsModalOpen(false);
     };
 
+    // checks if isWinOpen flag is true so it actually opens the modal
     useEffect(() => {
         if (isWinOpen) {
             setWinModalOpen(true);
         }
     }, [isWinOpen]);
+
+    // checks if isLoseOpen flag is true so it actually opens the modal
+    useEffect(() => {
+        if (isLoseOpen)  {
+            setLoseModalOpen(true);
+        }
+    }, [isLoseOpen])
 
     return (
         <div className={styles.wrapper}>
@@ -44,6 +54,7 @@ export default function Topbar() {
                 )}
             </div>
             <div>{winModalOpen && <Win/>}</div>
+            <div>{loseModalOpen && <Lose/>}</div>
         </div>
         
     )
