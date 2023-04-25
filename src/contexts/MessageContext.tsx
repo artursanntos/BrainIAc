@@ -55,7 +55,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
             const data = {
                 "country": solution,
                 "question": question,
-                "context": context
+                //"context": context // context is disabled for now
             };
 
 
