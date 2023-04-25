@@ -6,7 +6,8 @@
     background: var(--gray-600);
 }
 
-.textfield:focus-within { /* quando qualquer coisa dentro for clicada, deve haver um foco na div toda */
+.textfield:focus-within {
+    /* quando qualquer coisa dentro for clicada, deve haver um foco na div toda */
     border: 1px solid var(--blue-100);
 }
 
@@ -21,7 +22,8 @@ input {
 }
 
 .sendButton {
-    all: unset; /* Removendo configurações anteriores */
+    all: unset;
+    /* Removendo configurações anteriores */
     margin: 0.2rem 0.8rem 0 0;
     cursor: pointer;
     color: var(--cian-200);
@@ -31,5 +33,7 @@ input {
 .sendButton:hover {
     color: var(--blue-100);
 }
-  
-  
+
+.loading {
+    color: var(--cian-200);
+}

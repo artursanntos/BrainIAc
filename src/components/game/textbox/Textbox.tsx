@@ -5,25 +5,25 @@ import { MessageContext } from '../../../contexts/MessageContext';
 
 
 
-export default function Textbox({placeholderText = ''}) {
+export default function Textbox({ placeholderText = '' }) {
 
-    const {messages, setMessages, askGpt} = useContext(MessageContext);
-    
-    
+    const { messages, setMessages, askGpt } = useContext(MessageContext);
+
+
     const [newMessageText, setNewMessageText] = useState('');
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
     const handleCreateNewMessage = async (e: React.FormEvent<HTMLFormElement>) => {
-        
-        if(newMessageText.trim().length != 0){
+
+        if (newMessageText.trim().length != 0) {
             e.preventDefault();
-            setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
+            setMessages([...messages, { content: newMessageText, isUserMessage: true, isProcessing: false }]);
             setNewMessageText('');
             await askGpt(newMessageText);
         }
         e.preventDefault();
-        
+
     }
     /* This function gets the value written on the input */
     const handleNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +40,8 @@ export default function Textbox({placeholderText = ''}) {
                 type="text"
                 placeholder={placeholderText}
                 value={newMessageText}
-                onChange={handleNewMessageChange}/>
-            <button className={styles.sendButton} type='submit'><FiSend/></button>
+                onChange={handleNewMessageChange} />
+            <button className={styles.sendButton} type='submit'><FiSend /></button>
         </form>
 
     )

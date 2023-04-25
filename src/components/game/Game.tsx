@@ -9,12 +9,12 @@ import Guessbox from './guessbox/Guessbox';
 
 export default function Game() {
 
-    const {messages, guesses, getSolution, guessCount} = useContext(MessageContext);
+    const { messages, guesses, getSolution, guessCount } = useContext(MessageContext);
 
     useEffect(() => {
         getSolution();
     }, []);
-    
+
     return (
         <div className={styles.grid_container}>
             <div className={styles.sidechat}>
@@ -22,29 +22,29 @@ export default function Game() {
                     <p>Guesses</p>
                     <p className={styles.guessCounter}>{guessCount}/5</p>
                 </div>
-                
+
                 <div className={styles.line}></div>
-                
+
                 <div className={styles.guesses}>
                     {guesses.map(guess => {
                         return (
-                            <Guess name={guess} distance='9260' direction='Southeast'/>
+                            <Guess name={guess} distance='9260' direction='Southeast' />
                         )
                     })}
-                        
+
                 </div>
-                <Guessbox/>
-                
+                <Guessbox />
+
             </div>
             <div className={styles.mainchat}>
                 <p>Talk to BrainIAc to discover the country!</p>
                 <div className={styles.line}></div>
 
                 <div className={styles.chat}>
-                    {messages.map (message => {
+                    {messages.map(message => {
                         // console.log(message.content);
                         return (
-                            <ChatBubble content={message.content} isUserMessage={message.isUserMessage}/>
+                            <ChatBubble content={message.content} isUserMessage={message.isUserMessage} isProcessing={message.isProcessing} />
                         )
                     })
 
@@ -52,11 +52,11 @@ export default function Game() {
                 </div>
 
                 <div className={styles.textbox}>
-                    <Textbox placeholderText='Ask a yes or no question'/>
+                    <Textbox placeholderText='Ask a yes or no question' />
                 </div>
-                
+
             </div>
-            
+
         </div>
     )
 }

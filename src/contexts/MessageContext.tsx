@@ -9,6 +9,7 @@ import axios from 'axios';
 interface Messages {
     content: string;
     isUserMessage: boolean;
+    isProcessing: boolean;
 }
 
 /* This represents the type of context, which is the state i want to hold*/
@@ -46,7 +47,10 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
                 'Content-type': 'application/json'
             }
 
-            const context = messages.map((message) => { return { "text": message.content, is_user: message.isUserMessage }; });
+            const context = messages.filter((message) => message.isProcessing == false).map((message) => { return { "text": message.content, is_user: message.isUserMessage }; })
+
+            setMessages((oldState) => [...oldState, { content: "", isUserMessage: false, isProcessing: true }]);
+
 
             const data = {
                 "country": solution,
@@ -58,7 +62,8 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
 
             const answer = response.data.answer;
 
-            setMessages((oldState) => [...oldState, { content: answer, isUserMessage: false }]);
+            setMessages((oldState) => [...oldState.filter((message) => message.isProcessing == false), { content: answer, isUserMessage: false, isProcessing: false }]);
+
 
 
         } catch (error) {
@@ -77,7 +82,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
 
             if (dailySolution.data.solution != localStorage.getItem('answer')) {
                 setGuesses([]);
-                setMessages([{ content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }]);
+                setMessages([{ content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false, isProcessing: false }]);
                 setWin(false);
                 setGuessCount(0);
                 localStorage.clear();
@@ -96,7 +101,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
     const [solution, setSolution] = useState<string>("");
 
     const [messages, setMessages] = useState<Messages[]>([
-        { content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }
+        { content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false, isProcessing: false }
     ]);
 
     const [guesses, setGuesses] = useState<string[]>([]);
