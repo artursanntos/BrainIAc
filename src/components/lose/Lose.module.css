@@ -64,6 +64,20 @@ h4 b {
     background: var(--blue-100);
 }
 
+.copied {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.copied p {
+    all: unset;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--gray-300);
+}
+
 /* newgame feature was removed */
 .newGame {
     display: flex;

@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { CgCloseO } from "react-icons/cg";
 import { WinContext } from '../../contexts/WinContext';
 import { MessageContext } from '../../contexts/MessageContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 const fadedBg = {
     overlay: {
@@ -18,6 +18,8 @@ export function Lose() {
     const { setIsLoseOpen, isLoseOpen } = useContext(WinContext);
     const { solution } = useContext(MessageContext);
 
+    const [isCopied, setIsCopied] = useState(false);
+
     const handleCloseLose = () => {
         setIsLoseOpen(false);
     }
@@ -25,6 +27,7 @@ export function Lose() {
     const copyContent = async() => {
         try {
             await navigator.clipboard.writeText('I could not figure out the mistery country! 🥲\nTry yourself: https://brainiac.vercel.app/')
+            setIsCopied(true);
         }catch (error) {
             console.log(error);
             
@@ -41,6 +44,9 @@ export function Lose() {
             <h4>The mistery country was <b>{solution}</b></h4>
             <div className={styles.sharePlaceholder}>
                 <button className={styles.shareButton} onClick={copyContent}>Share</button>
+            </div>
+            <div className={styles.copied}>
+                {isCopied && <p>copied to clipboard!</p>}
             </div>
             
             

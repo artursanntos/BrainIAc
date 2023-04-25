@@ -4,7 +4,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Adjust width as needed */
-    width: 90%; /* Set a maximum width for smaller screens */
+    width: 40rem; /* Set a maximum width for smaller screens */
     min-width: 24rem;
     padding: 1.2rem 2rem 1.2rem 1.2rem;
     background-color: var(--gray-800); /* Set the background color to dark */
