@@ -36,7 +36,7 @@ export function Win() {
                 <button className={styles.closeButton} onClick={handleCloseWin}><CgCloseO/></button>
             </div>
             <div className={styles.footer}>
-                <h3>You won!</h3>
+                <h3>You got it!</h3>
                 <span role="img" aria-label="party popper">🎉</span>
             </div>
             <div className={styles.sharePlaceholder}>
