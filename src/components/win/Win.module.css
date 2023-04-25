@@ -5,7 +5,7 @@
     transform: translate(-50%, -50%);
     width: 90%; /* Adjust width as needed */
     max-width: 24rem; /* Set a maximum width for smaller screens */
-    padding: 1.2rem 2rem 1.2rem 1.2rem;
+    padding: 1.2rem 1.2rem 1.2rem 1.2rem;
     background-color: var(--gray-800); /* Set the background color to dark */
     border-radius: 5px;
     color: #ffffff; /* Set text color to light */
@@ -58,6 +58,20 @@ h3 {
 
 .shareButton:hover {
     background: var(--blue-100);
+}
+
+.copied {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.copied p {
+    all: unset;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--gray-300);
 }
 
 /* newgame feature was removed */

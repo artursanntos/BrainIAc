@@ -2,7 +2,7 @@ import styles from './Win.module.css';
 import Modal from 'react-modal';
 import { CgCloseO } from "react-icons/cg";
 import { WinContext } from '../../contexts/WinContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import NewGame from '../newgame/NewGame';
 import { MessageContext } from '../../contexts/MessageContext';
 
@@ -16,6 +16,8 @@ const fadedBg = {
 export function Win() {
 
     const { setIsWinOpen, isWinOpen } = useContext(WinContext);
+
+    const [isCopied, setIsCopied] = useState(false);
     const { messages } = useContext(MessageContext);
 
     const handleCloseWin = () => {
@@ -29,6 +31,7 @@ export function Win() {
     const copyContent = async () => {
         try {
             await navigator.clipboard.writeText(`I found out the mistery country with only ${getMessagesCount()} 😎\nTry yourself: https://brainiac.vercel.app/`)
+            setIsCopied(true);
         } catch (error) {
             console.log(error);
 
@@ -49,7 +52,11 @@ export function Win() {
             <div className={styles.sharePlaceholder}>
                 <button className={styles.shareButton} onClick={copyContent}>Share</button>
             </div>
-
+            <div className={styles.copied}>
+                {isCopied && <p>copied to clipboard!</p>}
+            </div>
+            
+            
         </Modal>
     );
 
