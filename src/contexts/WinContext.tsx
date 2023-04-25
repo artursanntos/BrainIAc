@@ -1,4 +1,5 @@
-import { ReactNode, createContext, useState, Dispatch, SetStateAction } from "react";
+import { ReactNode, createContext, useState, Dispatch, SetStateAction, useContext } from "react";
+import { MessageContext } from "./MessageContext";
 
 interface WinContextType {
     // check if the game was won
@@ -19,10 +20,10 @@ interface WinProviderProps {
     children: ReactNode;
 }
 
+
 export const WinContext = createContext({} as WinContextType);
 
 export function WinContextProvider({ children }: WinProviderProps) {
-
 
     const [win, setWin] = useState<boolean>(false);
     const [isWinOpen, setIsWinOpen] = useState<boolean>(false);
