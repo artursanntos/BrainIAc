@@ -30,7 +30,7 @@ export function Win() {
 
     const copyContent = async () => {
         try {
-            await navigator.clipboard.writeText(`I found out the mistery country with only ${getMessagesCount()} 😎\nTry yourself: https://brainiac.vercel.app/`)
+            await navigator.clipboard.writeText(`I found out the mistery country with only ${getMessagesCount()} questions 😎\nTry yourself: https://brainiac.vercel.app/`)
             setIsCopied(true);
         } catch (error) {
             console.log(error);
@@ -55,8 +55,8 @@ export function Win() {
             <div className={styles.copied}>
                 {isCopied && <p>copied to clipboard!</p>}
             </div>
-            
-            
+
+
         </Modal>
     );
 
