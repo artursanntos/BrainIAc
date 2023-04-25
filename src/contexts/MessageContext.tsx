@@ -58,9 +58,15 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
                 "context": context
             };
 
-            const response = await axios.post(url, data, { headers })
 
-            const answer = response.data.answer;
+            const response = await axios.post(url, data, { headers });
+
+            var answer = "";
+            if (response.status != 200) {
+                answer = "I've encountered an error. Please try again later.";
+            } else {
+                answer = response.data.answer;
+            }
 
             setMessages((oldState) => [...oldState.filter((message) => message.isProcessing == false), { content: answer, isUserMessage: false, isProcessing: false }]);
 
