@@ -4,9 +4,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Adjust width as needed */
-    max-width: 800px; /* Set a maximum width for smaller screens */
-    min-width: 400px;
-    padding: 20px;
+    width: 90%; /* Set a maximum width for smaller screens */
+    min-width: 24rem;
+    padding: 1.2rem 2rem 1.2rem 1.2rem;
     background-color: var(--gray-800); /* Set the background color to dark */
     border-radius: 5px;
     color: #ffffff; /* Set text color to light */
@@ -20,7 +20,7 @@
   }
   
   .modal h1 {
-    font-size: 28px;
+    font-size: 1.68rem;
   }
   
   .modal p {
@@ -48,10 +48,11 @@
   }
 
   /* Example media query for small screens */
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .modal {
       width: 10%;
-      max-width: 40%; /* Set to 100% to allow full width on small screens */
+      max-width: 100%; 
+      line-height: 2rem;
     }
   }
   

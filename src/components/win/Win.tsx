@@ -20,6 +20,14 @@ export function Win() {
         setIsWinOpen(false);
     }
     
+    const copyContent = async() => {
+        try {
+            await navigator.clipboard.writeText('I found out the mistery country! 😎\nTry yourself: https://brainiac.vercel.app/')
+        }catch (error) {
+            console.log(error);
+            
+        }
+    }
 
     return (
         <Modal className={styles.win} isOpen={isWinOpen} onRequestClose={handleCloseWin} style={fadedBg}>
@@ -28,8 +36,11 @@ export function Win() {
                 <button className={styles.closeButton} onClick={handleCloseWin}><CgCloseO/></button>
             </div>
             <div className={styles.footer}>
-                <h3>You won!</h3>
+                <h3>You got it!</h3>
                 <span role="img" aria-label="party popper">🎉</span>
+            </div>
+            <div className={styles.sharePlaceholder}>
+                <button className={styles.shareButton} onClick={copyContent}>Share</button>
             </div>
             
         </Modal>

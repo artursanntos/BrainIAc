@@ -11,20 +11,23 @@ export default function Textbox({}) {
     const {countries, guesses, setGuesses, solution, setGuessCount, guessCount} = useContext(MessageContext);
 
     const [newGuess, setNewGuess] = useState('');
-    const { setIsWinOpen, setWin } = useContext(WinContext);
+    const { setIsWinOpen, setWin, win, lose, setIsLoseOpen, setLose } = useContext(WinContext);
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
     const handleCreateNewGuess = async (e: React.FormEvent<HTMLFormElement>) => {
         
         e.preventDefault();
-        if (guessCount < 5) {
+        if (guessCount < 5 && !win) {
             setGuesses([...guesses, newGuess]);
             setGuessCount(guessCount + 1);
 
             if (newGuess == solution) {
                 setWin(true);
                 setIsWinOpen(true);
+            } else if ((guessCount + 1) == 5) {
+                setLose(true)
+                setIsLoseOpen(true);
             }
         }
     
@@ -48,7 +51,7 @@ export default function Textbox({}) {
                     })}
                 </select>
             </div>
-            <button className={styles.sendButton} type='submit'><FiSend/></button>
+            <button className={styles.sendButton} type='submit' disabled={win || lose}><FiSend/></button>
         </form>
 
     )

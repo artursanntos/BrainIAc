@@ -7,6 +7,12 @@ interface WinContextType {
     // check if win popup modal is opened
     isWinOpen: boolean;
     setIsWinOpen: Dispatch<SetStateAction<boolean>>;
+    // check if the game was lost
+    lose: boolean;
+    setLose: Dispatch<SetStateAction<boolean>>;
+    // check if lose popup is open
+    isLoseOpen: boolean;
+    setIsLoseOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 interface WinProviderProps {
@@ -20,10 +26,12 @@ export function WinContextProvider({ children }: WinProviderProps) {
 
     const [win, setWin] = useState<boolean>(false);
     const [isWinOpen, setIsWinOpen] = useState<boolean>(false);
+    const [lose, setLose] = useState<boolean>(false);
+    const [isLoseOpen, setIsLoseOpen] = useState<boolean>(false);
 
 
     return (
-        <WinContext.Provider value={{ win, setWin, isWinOpen, setIsWinOpen }}>
+        <WinContext.Provider value={{ win, setWin, isWinOpen, setIsWinOpen, lose, setLose, isLoseOpen, setIsLoseOpen }}>
             {children}
         </WinContext.Provider>
 

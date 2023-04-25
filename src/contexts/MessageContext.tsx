@@ -37,7 +37,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
 
     const countries = ['Algeria', 'Angola', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bolivia', 'Brazil', 'Bulgaria', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cuba', 'Czech Republic', 'Denmark', 'Ecuador', 'Egypt', 'Finland', 'France', 'Germany', 'Greece', 'Holy See (Vatican City State)', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Kazakhstan', 'Korea', 'Madagascar', 'Maldives', 'Mexico', 'Morocco', 'New Zealand', 'North Korea', 'Norway', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Russian Federation', 'Saudi Arabia', 'Serbia', 'Singapore', 'South Africa', 'Spain', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Turkey', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Venezuela'];
 
-    const { setWin } = useContext(WinContext);
+    const { setWin, setLose } = useContext(WinContext);
 
     const askGpt = async (question: string) => {
         try {
@@ -84,6 +84,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
                 setGuesses([]);
                 setMessages([{ content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false, isProcessing: false }]);
                 setWin(false);
+                setLose(false);
                 setGuessCount(0);
                 localStorage.clear();
                 localStorage.setItem('answer', dailySolution.data.solution);

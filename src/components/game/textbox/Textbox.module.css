@@ -34,6 +34,7 @@ input {
     color: var(--blue-100);
 }
 
-.loading {
-    color: var(--cian-200);
+.sendButton:disabled {
+    cursor: default;
+    color: var(--gray-400);
 }
