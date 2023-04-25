@@ -4,8 +4,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%; /* Adjust width as needed */
-    max-width: 400px; /* Set a maximum width for smaller screens */
-    padding: 20px;
+    max-width: 24rem; /* Set a maximum width for smaller screens */
+    padding: 1.2rem 2rem 1.2rem 1.2rem;
     background-color: var(--gray-800); /* Set the background color to dark */
     border-radius: 5px;
     color: #ffffff; /* Set text color to light */
@@ -56,7 +56,7 @@ h4 b {
     color: var(--gray-200);
     background: var(--cian-200);
     cursor: pointer;
-    padding: 5px;
+    padding: 0.3rem;
     border-radius: 5px;
 }
 

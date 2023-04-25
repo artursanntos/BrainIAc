@@ -17,25 +17,6 @@ export default function Game() {
     
     return (
         <div className={styles.grid_container}>
-            <div className={styles.sidechat}>
-                <div className={styles.placeholder}>
-                    <p>Guesses</p>
-                    <p className={styles.guessCounter}>{guessCount}/5</p>
-                </div>
-                
-                <div className={styles.line}></div>
-                
-                <div className={styles.guesses}>
-                    {guesses.map(guess => {
-                        return (
-                            <Guess name={guess} distance='9260' direction='Southeast'/>
-                        )
-                    })}
-                        
-                </div>
-                <Guessbox/>
-                
-            </div>
             <div className={styles.mainchat}>
                 <p>Talk to BrainIAc to discover the country!</p>
                 <div className={styles.line}></div>
@@ -56,7 +37,25 @@ export default function Game() {
                 </div>
                 
             </div>
-            
+            <div className={styles.sidechat}>
+                <div className={styles.placeholder}>
+                    <p>Guesses</p>
+                    <p className={styles.guessCounter}>{guessCount}/5</p>
+                </div>
+                
+                <div className={styles.line}></div>
+                
+                <div className={styles.guesses}>
+                    {guesses.map(guess => {
+                        return (
+                            <Guess name={guess} distance='9260' direction='Southeast'/>
+                        )
+                    })}
+                        
+                </div>
+                <Guessbox/>
+                
+            </div>
         </div>
     )
 }
