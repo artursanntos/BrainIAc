@@ -1,6 +1,6 @@
 # BrainIAc
 
-BrainIAc é um jogo de browser onde o jogador deve adivinhar o país que o BrainIAc está pensando. Para isso, o jogador pode fazer perguntas, às quais o BrainIAc pode responder sim ou não. O BrainIAc utiliza a API da OpenAI para conversar com o jogador.
+[BrainIAc](brainiac.vercel.app) é um jogo de browser onde o jogador deve adivinhar o país que o BrainIAc está pensando. Para isso, o jogador pode fazer perguntas, às quais o BrainIAc pode responder sim ou não. O BrainIAc utiliza a API da OpenAI para conversar com o jogador.
 
 Este jogo foi construído por alunos do Centro de Informática da UFPE.
 
@@ -19,7 +19,7 @@ Este jogo foi feito utilizando:
 
 ## Como Jogar
 
-1. Acesse [brainiac.vercel.app](brainiac)
+1. Acesse [BrainIAc](brainiac.vercel.app)
 2. O BrainIAc vai pensar em um país e você deve tentar adivinhar qual é.
 3. Faça perguntas para o BrainIAc utilizando a entrada de texto.
 4. Utilize a lista de países para fazer um palpite.
