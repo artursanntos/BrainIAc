@@ -19,7 +19,7 @@ Este jogo foi feito utilizando:
 
 ## Como Jogar
 
-1. Acesse o link do jogo.
+1. Acesse brainiac.vercel.app.
 2. O BrainIAc vai pensar em um país e você deve tentar adivinhar qual é.
 3. Faça perguntas para o BrainIAc utilizando a entrada de texto.
 4. Utilize a lista de países para fazer um palpite.
