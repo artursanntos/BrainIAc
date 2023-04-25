@@ -1,7 +1,7 @@
 import styles from './Game.module.css';
 import ChatBubble from './chatbubble/ChatBubble';
 import Textbox from './textbox/Textbox';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { MessageContext } from '../../contexts/MessageContext';
 import Guess from './guess/Guess';
 import Guessbox from './guessbox/Guessbox';
@@ -9,12 +9,20 @@ import Guessbox from './guessbox/Guessbox';
 
 export default function Game() {
 
-    const {messages, guesses} = useContext(MessageContext);
+    const {messages, guesses, getSolution, guessCount} = useContext(MessageContext);
 
+    useEffect(() => {
+        getSolution();
+    }, []);
+    
     return (
         <div className={styles.grid_container}>
             <div className={styles.sidechat}>
-                <p>Guesses</p>
+                <div className={styles.placeholder}>
+                    <p>Guesses</p>
+                    <p className={styles.guessCounter}>{guessCount}/5</p>
+                </div>
+                
                 <div className={styles.line}></div>
                 
                 <div className={styles.guesses}>

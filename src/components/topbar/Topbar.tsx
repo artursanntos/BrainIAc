@@ -11,7 +11,7 @@ import Logo from '../logo/Logo';
 export default function Topbar() {
 
     const { isWinOpen } = useContext(WinContext);
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [winModalOpen, setWinModalOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -43,7 +43,6 @@ export default function Topbar() {
                     />
                 )}
             </div>
-            <NewGame/>
             <div>{winModalOpen && <Win/>}</div>
         </div>
         

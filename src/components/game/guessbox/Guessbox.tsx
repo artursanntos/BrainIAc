@@ -8,8 +8,7 @@ import { WinContext } from '../../../contexts/WinContext';
 
 export default function Textbox({}) {
 
-
-    const {countries, guesses, setGuesses, solution} = useContext(MessageContext);
+    const {countries, guesses, setGuesses, solution, setGuessCount, guessCount} = useContext(MessageContext);
 
     const [newGuess, setNewGuess] = useState('');
     const { setIsWinOpen, setWin } = useContext(WinContext);
@@ -19,13 +18,16 @@ export default function Textbox({}) {
     const handleCreateNewGuess = async (e: React.FormEvent<HTMLFormElement>) => {
         
         e.preventDefault();
-        setGuesses([...guesses, newGuess]);
-        
+        if (guessCount < 5) {
+            setGuesses([...guesses, newGuess]);
+            setGuessCount(guessCount + 1);
 
-        if (newGuess == solution) {
-            setWin(true);
-            setIsWinOpen(true);
+            if (newGuess == solution) {
+                setWin(true);
+                setIsWinOpen(true);
+            }
         }
+    
     }
     /* This function gets the value written on the input */
     const handleNewGuessChange = (e: string) => {

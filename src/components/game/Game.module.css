@@ -49,5 +49,12 @@ div > p {
 .placeholder {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 1.2rem;
+}
+
+.guessCounter {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue-100);
 }
