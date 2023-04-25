@@ -2,12 +2,15 @@ import styles from './Textbox.module.css';
 import { FiSend } from "react-icons/fi";
 import { useState, useContext } from 'react';
 import { MessageContext } from '../../../contexts/MessageContext';
+import { WinContext } from '../../../contexts/WinContext';
+import { Lose } from '../../lose/Lose';
 
 
 
 export default function Textbox({placeholderText = ''}) {
 
     const {messages, setMessages, askGpt} = useContext(MessageContext);
+    const { lose, win } = useContext(WinContext)
     
     
     const [newMessageText, setNewMessageText] = useState('');
@@ -16,7 +19,7 @@ export default function Textbox({placeholderText = ''}) {
     erases the content in the text box */
     const handleCreateNewMessage = async (e: React.FormEvent<HTMLFormElement>) => {
         
-        if(newMessageText.trim().length != 0){
+        if((newMessageText.trim().length != 0) && !lose && !win){
             e.preventDefault();
             setMessages([...messages, {content: newMessageText, isUserMessage: true}]);
             setNewMessageText('');
@@ -40,8 +43,9 @@ export default function Textbox({placeholderText = ''}) {
                 type="text"
                 placeholder={placeholderText}
                 value={newMessageText}
-                onChange={handleNewMessageChange}/>
-            <button className={styles.sendButton} type='submit'><FiSend/></button>
+                onChange={handleNewMessageChange}
+                disabled={win || lose}/>
+            <button className={styles.sendButton} disabled={win || lose} type='submit'><FiSend/></button>
         </form>
 
     )

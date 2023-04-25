@@ -31,5 +31,10 @@ input {
 .sendButton:hover {
     color: var(--blue-100);
 }
+
+.sendButton:disabled {
+    cursor: default;
+    color: var(--gray-400);
+}
   
   
