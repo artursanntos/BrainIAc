@@ -11,11 +11,11 @@ export default function NewGame() {
     const handleNewGame = () => {
 
         const randomIndex = Math.floor(Math.random() * countries.length);
-        setSolution(countries[randomIndex]);
-        setGuesses([]);
-        setMessages([{ content : "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }]);
-        setWin(false);
-        setIsWinOpen(false);
+        //setSolution(countries[randomIndex]);
+        //setGuesses([]);
+        //setMessages([{ content : "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }]);
+        //setWin(false);
+        //setIsWinOpen(false);
     }
 
     return (
