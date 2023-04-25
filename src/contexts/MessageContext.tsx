@@ -36,9 +36,9 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
 
     const countries = ['Algeria', 'Angola', 'Argentina', 'Australia', 'Austria', 'Belgium', 'Bolivia', 'Brazil', 'Bulgaria', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cuba', 'Czech Republic', 'Denmark', 'Ecuador', 'Egypt', 'Finland', 'France', 'Germany', 'Greece', 'Holy See (Vatican City State)', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Kazakhstan', 'Korea', 'Madagascar', 'Maldives', 'Mexico', 'Morocco', 'New Zealand', 'North Korea', 'Norway', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Russian Federation', 'Saudi Arabia', 'Serbia', 'Singapore', 'South Africa', 'Spain', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Turkey', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Venezuela'];
 
-    const {setWin} = useContext(WinContext);
+    const { setWin } = useContext(WinContext);
 
-    const askGpt = async(question: string) => {
+    const askGpt = async (question: string) => {
         try {
             const url = 'https://multimidia-backend-5lcnphvxha-uc.a.run.app/api/question/';
 
@@ -46,35 +46,38 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
                 'Content-type': 'application/json'
             }
 
+            const context = messages.map((message) => { return { "text": message.content, is_user: message.isUserMessage }; });
+
             const data = {
                 "country": solution,
-                "question": question
+                "question": question,
+                "context": context
             };
 
             const response = await axios.post(url, data, { headers })
-            
+
             const answer = response.data.answer;
-            
-            setMessages((oldState) => [...oldState, {content: answer, isUserMessage: false}]);
-            
+
+            setMessages((oldState) => [...oldState, { content: answer, isUserMessage: false }]);
+
 
         } catch (error) {
             console.log(error);
-            
+
         }
     }
 
-    const getSolution = async() => {
+    const getSolution = async () => {
 
         try {
             const apiUrl = 'https://multimidia-backend-5lcnphvxha-uc.a.run.app/api/daily-solution/';
 
             const dailySolution = await axios.get(apiUrl);
-            
+
 
             if (dailySolution.data.solution != localStorage.getItem('answer')) {
                 setGuesses([]);
-                setMessages([{ content : "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }]);
+                setMessages([{ content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }]);
                 setWin(false);
                 setGuessCount(0);
                 localStorage.clear();
@@ -82,18 +85,18 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
             }
 
             setSolution(dailySolution.data.solution);
-             
+
         } catch (error) {
             console.log(error);
-            
+
         }
-        
+
     }
 
     const [solution, setSolution] = useState<string>("");
 
     const [messages, setMessages] = useState<Messages[]>([
-        { content : "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }
+        { content: "Hi, I've already thought of a country! Ask me any Yes or No question.", isUserMessage: false }
     ]);
 
     const [guesses, setGuesses] = useState<string[]>([]);
@@ -105,13 +108,13 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
             localStorage.setItem('messages', JSON.stringify(messages))
         }
 
-    },[messages])
+    }, [messages])
 
     useEffect(() => {
         if (guesses.length > 0) {
             localStorage.setItem('guesses', JSON.stringify(guesses));
         }
-        
+
     }, [guesses])
 
     useEffect(() => {
@@ -121,7 +124,7 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
     }, [guessCount])
 
     useEffect(() => {
-        
+
         if (localStorage.getItem('messages') != null) {
             setMessages(JSON.parse(localStorage.getItem('messages')!))
         }
@@ -133,11 +136,11 @@ export function MessageContextProvider({ children }: MessageProviderProps) {
         if (localStorage.getItem('guessCount') != null) {
             setGuessCount(JSON.parse(localStorage.getItem('guessCount')!))
         }
-        
+
     }, [])
 
     return (
-        <MessageContext.Provider value={{guessCount, setGuessCount, solution, setSolution, messages, setMessages, guesses, setGuesses, countries, askGpt, getSolution}}>
+        <MessageContext.Provider value={{ guessCount, setGuessCount, solution, setSolution, messages, setMessages, guesses, setGuesses, countries, askGpt, getSolution }}>
             {children}
         </MessageContext.Provider>
     )
