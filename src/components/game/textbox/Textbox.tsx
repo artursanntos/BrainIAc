@@ -1,18 +1,19 @@
 import styles from './Textbox.module.css';
 import { FiSend } from "react-icons/fi";
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { MessageContext } from '../../../contexts/MessageContext';
 import { WinContext } from '../../../contexts/WinContext';
-import { Lose } from '../../lose/Lose';
 
 
 
 export default function Textbox({ placeholderText = '' }) {
 
     const {messages, setMessages, askGpt} = useContext(MessageContext);
-    const { lose, win } = useContext(WinContext)
+    const { lose, win } = useContext(WinContext);
     
-    
+    // This state controls whether the game has ended or not
+    const [endGame, setEndGame] = useState(false);
+
     const [newMessageText, setNewMessageText] = useState('');
 
     /* This function adds the new message written to the list of messages and
@@ -33,8 +34,12 @@ export default function Textbox({ placeholderText = '' }) {
         setNewMessageText(e.currentTarget.value);
     }
 
-    /* This variable checks whether the content on the input box is empty */
-    //const isNewMessageEmpty = newMessageText.length == 0;
+    useEffect(() => {
+        if (localStorage.getItem('Lose') == 'true' || localStorage.getItem('Win') == 'true' || win || lose) {
+            setEndGame(true);
+        }
+    }, [win, lose])
+    
 
     return (
 
@@ -44,8 +49,8 @@ export default function Textbox({ placeholderText = '' }) {
                 placeholder={placeholderText}
                 value={newMessageText}
                 onChange={handleNewMessageChange}
-                disabled={win || lose}/>
-            <button className={styles.sendButton} disabled={win || lose} type='submit'><FiSend/></button>
+                disabled={endGame}/>
+            <button className={styles.sendButton} disabled={endGame} type='submit'><FiSend/></button>
         </form>
 
     )

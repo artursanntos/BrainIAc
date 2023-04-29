@@ -1,6 +1,6 @@
 import styles from './Guessbox.module.css';
 import { FiSend } from "react-icons/fi";
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { MessageContext } from '../../../contexts/MessageContext';
 import { WinContext } from '../../../contexts/WinContext';
 
@@ -12,6 +12,9 @@ export default function Textbox({}) {
 
     const [newGuess, setNewGuess] = useState('');
     const { setIsWinOpen, setWin, win, lose, setIsLoseOpen, setLose } = useContext(WinContext);
+
+    // This state controls whether the game has ended or not
+    const [endGame, setEndGame] = useState(false);
 
     /* This function adds the new message written to the list of messages and
     erases the content in the text box */
@@ -37,6 +40,11 @@ export default function Textbox({}) {
         setNewGuess(e);
     }
 
+    useEffect(() => {
+        if (localStorage.getItem('Lose') == 'true' || localStorage.getItem('Win') == 'true' || win || lose) {
+            setEndGame(true);
+        }
+    }, [win, lose])
 
     return (
 
@@ -51,7 +59,7 @@ export default function Textbox({}) {
                     })}
                 </select>
             </div>
-            <button className={styles.sendButton} type='submit' disabled={win || lose}><FiSend/></button>
+            <button className={styles.sendButton} type='submit' disabled={endGame}><FiSend/></button>
         </form>
 
     )
